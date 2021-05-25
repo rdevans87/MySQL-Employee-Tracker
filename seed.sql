@@ -8,6 +8,8 @@ VALUES
 ('Marketing'),
 ('Development');
 
+INSERT INTO role (
+title,
 
-INSERT INTO
+)
 INSERT INTO
