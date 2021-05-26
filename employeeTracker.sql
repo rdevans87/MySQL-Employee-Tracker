@@ -42,7 +42,7 @@ CREATE TABLE employee (
   role_id INT NOT NULL,
   FOREIGN KEY (role_id) REFERENCES role(id),
   -- to hold reference to another employee --
-  manager_id INT NOT NULL, 
+  manager_id INT L, 
    -- alt FOREIGN KEY (role_id) REFERENCES role(id) -- 
   FOREIGN KEY (manager_id) REFERENCES role(id),
   PRIMARY KEY (id)

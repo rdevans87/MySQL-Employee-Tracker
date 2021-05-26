@@ -27,10 +27,10 @@ INSERT INTO employee
 
 VALUES
 ('Mike', 'Miller', 1, 2),
-('John', 'Winters', 2, NULL),
-('Lisa', 'Wright', 3, 4 ),
-('Steve', 'Streets', 4, NULL),
+('John', 'Winters', 2, 1),
+('Lisa', 'Wright', 3, 4),
+('Steve', 'Streets', 4, 3),
 ('Chris', 'Maple', 5, 6),
-('Heather', 'Williams', 6, NULL),
+('Heather', 'Williams', 6, 5),
 ('Julie', 'Adams', 7, 8),
-('Dan', 'Klein', 8, NULL);
+('Dan', 'Klein', 8, 7);
