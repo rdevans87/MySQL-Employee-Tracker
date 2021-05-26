@@ -8,16 +8,22 @@ USE employeerTracker_db;
 -- DATABASE SCHEMA CONTAINING THREE TABLES --
 
 CREATE TABLE department (
-    id INT PRIMARY KEY AUTOINCREMENT
-    name VARCHAR(30) NOT NULL
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(30) NOT NULL,
+    PRIMARY KEY (id)
+  
 
 );
 
 CREATE TABLE role(
-    id INT PRIMARY KEY AUTOINCREMENT
-    title VARCHAR(30) to hold role title
-    salary DECIMAL to hold role salary
-    department_id to hold reference to department role belongs to 
+    id INT NOT NULL AUTO_INCREMENT
+    -- to hold role title --
+    title VARCHAR(30) NOT NULL,
+    -- to hold role salary --
+    salary DECIMAL NOT NULL,
+    -- to hold reference to department role belongs to --
+    department_id FOREIGN KEY REFERENCES department(id) 
+    PRIMARY KEY (id)
 
 
 );
