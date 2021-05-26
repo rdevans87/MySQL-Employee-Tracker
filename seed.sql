@@ -22,8 +22,6 @@ VALUES
 ('Development Manager', 100000, 4),
 ('Development Associate', 80000, 4);
 
-
-
 INSERT INTO
 first_name, last_name, role_id, manager_id
 
