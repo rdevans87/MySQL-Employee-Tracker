@@ -9,20 +9,23 @@ USE employeerTracker_db;
 
 CREATE TABLE department (
     id INT NOT NULL AUTO_INCREMENT,
+    
     name VARCHAR(30) NOT NULL,
+    
     PRIMARY KEY (id)
   
 
 );
 
 CREATE TABLE role (
-    id INT NOT NULL AUTO_INCREMENT
+    id INT NOT NULL AUTO_INCREMENT,
     -- to hold role title --
     title VARCHAR(30) NOT NULL,
     -- to hold role salary --
     salary DECIMAL NOT NULL,
     -- to hold reference to department role belongs to --
-    department_id FOREIGN KEY REFERENCES department(id) 
+    department_id INT NOT NULL,
+    FOREIGN KEY (department_id) REFERENCES department(id),
     PRIMARY KEY (id)
 
 
@@ -30,13 +33,19 @@ CREATE TABLE role (
 
 CREATE TABLE employee (
 
-  id INT PRIMARY KEY AUTO_INCREMENT
-  first_name VARCHAR(30) to hold employee first name
-  last_name VARCHAR(30) to hold employee last name
-  role_id INT to hold reference to role employee has
-  manager_id INT to hold reference to another employee 
-  that manages the employee being Created. This field may be 
-  null if the employee has no manager
+  id INT NOT NULL AUTO_INCREMENT,
+  -- to hold employee first name --
+  first_name VARCHAR(30) NOT NULL,
+  -- to hold employee last name --
+  last_name VARCHAR(30) NOT NULL,
+  --  to hold reference to role employee has --
+  role_id INT NOT NULL,
+  FOREIGN KEY (role_id) REFERENCES role(id),
+  -- to hold reference to another employee --
+  manager_id INT NOT NULL, 
+   -- alt FOREIGN KEY (role_id) REFERENCES role(id) -- 
+  FOREIGN KEY (manager_id) REFERENCES manager(id),
+  PRIMARY KEY (id)
 
 
 );
