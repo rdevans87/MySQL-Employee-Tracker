@@ -1,7 +1,7 @@
 -- DROPS DATABASE IF employeeTracker_db ALREADY EXISTS --
-DROP DATABASE IF EXISTS employeeTracker_db;
+-- DROP DATABASE IF EXISTS employeeTracker_db;
 
-CREATE DATABASE employeeTracker_db;
+-- CREATE DATABASE employeeTracker_db;
 
 USE employeerTracker_db;
 
@@ -44,7 +44,7 @@ CREATE TABLE employee (
   -- to hold reference to another employee --
   manager_id INT NOT NULL, 
    -- alt FOREIGN KEY (role_id) REFERENCES role(id) -- 
-  FOREIGN KEY (manager_id) REFERENCES manager(id),
+  FOREIGN KEY (manager_id) REFERENCES employee(id),
   PRIMARY KEY (id)
 
 
