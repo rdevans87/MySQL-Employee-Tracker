@@ -28,9 +28,9 @@ INSERT INTO
 VALUES
 ('Mike', 'Miller', 1, 2),
 ('John', 'Winters', 2, NULL),
-('Mike', 'Miller', 3, 4 ),
-('Mike', 'Miller', 4, NULL),
-('Mike', 'Miller', 5, 6),
-('Mike', 'Miller', 6, NULL),
-('Mike', 'Miller', 7, 8),
-('Mike', 'Miller', 8, NULL);
+('Lisa', 'Wright', 3, 4 ),
+('Steve', 'Streets', 4, NULL),
+('Chris', 'Maple', 5, 6),
+('Heather', 'Williams', 6, NULL),
+('Julie', 'Adams', 7, 8),
+('Dan', 'Klein', 8, NULL);

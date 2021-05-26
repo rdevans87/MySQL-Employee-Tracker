@@ -15,7 +15,7 @@ CREATE TABLE department (
 
 );
 
-CREATE TABLE role(
+CREATE TABLE role (
     id INT NOT NULL AUTO_INCREMENT
     -- to hold role title --
     title VARCHAR(30) NOT NULL,
@@ -30,7 +30,7 @@ CREATE TABLE role(
 
 CREATE TABLE employee (
 
-  id INT PRIMARY KEY AUTOINCREMENT
+  id INT PRIMARY KEY AUTO_INCREMENT
   first_name VARCHAR(30) to hold employee first name
   last_name VARCHAR(30) to hold employee last name
   role_id INT to hold reference to role employee has
