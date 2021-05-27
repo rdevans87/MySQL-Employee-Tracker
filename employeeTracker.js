@@ -1,4 +1,5 @@
-const connection = require("mysql")
-const inquirer = require("inquirer")
-const console = require("console.table")
+const connection = require("mysql");
+// const inquirer = require("inquirer");
+const db = require("./db");
+require("console.table");
 
