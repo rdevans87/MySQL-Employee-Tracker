@@ -4,7 +4,7 @@
 
 Unit 12 MySQL Homework: Employee Tracker
 
-This application is a backend solution for managing a company's employees using `node.js`, `inquirer`, and `MySQL`. The interface functions as a **C**ontent **M**anagement **S**ystem for non-developers to easily view and interact with information stored in the database. 
+This application is a backend solution for managing a company's employees using `node.js`, `inquirer`, and `MySQL`. The interface functions as a **C**ontent **M**anagement **S**ystem for non-developers to easily view and interact with information stored in the database from the terminal. 
 
 
 ## User Story
@@ -32,9 +32,8 @@ Bonus points if you're able to:
   * View the total utilized budget of a department -- ie the combined salaries of all employees in that department
 
 
-How do you deliver this? Here are some guidelines:
 
-* Use the [MySQL](https://www.npmjs.com/package/mysql) NPM package to connect to your MySQL database and perform queries.
+* Use the [MySQL](https://www.npmjs.com/package/mysql) NPM package to connect to your MySQL database and perform queries. You may wish to include a `seed.sql` file to pre-populate your database. This will make development of individual features much easier.
 
 * Use [InquirerJs](https://www.npmjs.com/package/inquirer/v/0.2.3) NPM package to interact with the user via the command-line.
 
@@ -46,13 +45,30 @@ How do you deliver this? Here are some guidelines:
 
 ![Employee Tracker]()
 
-### Hints
+INSTALLATION 
 
-* You may wish to include a `seed.sql` file to pre-populate your database. This will make development of individual features much easier.
+Open `terminal`
+`npm init -y` to create a package.son file to store you dependenices.
+`npm i` to install your NPM package manager and required dependencies.
+`npm i inquirer`, `npm i console.table`, `npm i dotenv` to store environmental variables, 
+& `npm i mysql` (server and database)
+run command `mysql -u -root -p to connect to the database. Enter password to authorize.
+`Welcome to the MySQL monitor`, next type `mysql> status` get status information from the server or `help` for more option.
+confirm connection with database and server, then `quit` mysql. 
+run command `node employeeTracker`, then `npm start`
 
-* Focus on getting the basic functionality completed before working on more advanced features.
 
-* Review the week's activities for a refresher on MySQL.
+
+
+
+
+
+
+`npm i inquirer` 
+
+np
+
+
 
 ## Minimum Requirements
 

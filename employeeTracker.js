@@ -21,6 +21,23 @@ const connection = mysql.createConnection(
 
 );
 
+//INSERT SPLASH PAGE AT MAIN MENU 
+// function printLogo(){
+//     let logo = logoContent
+//  document.textContent("Customer Management System<br>" + "Employee Tracker")
+//         console.log(logo)
+    
+ RendeDirectory(function() {
+     
+
+
+
+ };
+}
+
+
+
+
 
 // connection.connect((err) => {
 //     if (err) throw err;
