@@ -1,7 +1,10 @@
+// connect to db to perform quieries
 const mysql = require("mysql");
+// interact with user via the command line
 const inquirer = require("inquirer");
-// const inquirer = require('inquirer')
-
+// print MySQL rows to the console.
+require(console.tabe).config();
+// dotenv for environmental variables
 require('dotenv').config();
 
 const connection = mysql.createConnection(
@@ -20,6 +23,12 @@ connection.connect((err) => {
     if (err) throw err;
     start();
 });
+
+
+
+
+
+
 
 
 module.exports = connection;
