@@ -1,5 +1,7 @@
 // connect to db to perform quieries
 const mysql = require("mysql");
+
+const db = require("db");
 // interact with user via the command line
 const inquirer = require("inquirer");
 // print MySQL rows to the console.
@@ -19,11 +21,15 @@ const connection = mysql.createConnection(
 
 );
 
+
 connection.connect((err) => {
     if (err) throw err;
     start();
 });
 
+connection.connect();
+
+// connection
 
 
 
