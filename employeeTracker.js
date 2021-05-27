@@ -1,12 +1,12 @@
-const connection = require("mysql");
+const mysql = require("mysql");
 const inquirer = require("inquirer");
 
 const mysql = require('mysql')
 // const inquirer = require('inquirer')
 
 const dotenv = require('dotenv').config();
-
-const connection = mysql.createConnection(
+   
+ const connection = mysql.createConnection(
     process.env.DB_NAME,
     process.env.DB_USER,
     process.env.DB_PASSWORD,
@@ -22,3 +22,6 @@ connection.connect((err) => {
     if (err) throw err;
     start();
 });
+
+
+module.exports = connections
