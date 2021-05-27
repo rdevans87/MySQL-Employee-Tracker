@@ -4,7 +4,7 @@
   "description": "## Description",
   "main": "employeeTracker.js",
   "scripts": {
-    "start": "node EmployeeTracker"
+    "start": "node employeeTracker"
   },
   "repository": {
     "type": "git",

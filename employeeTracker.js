@@ -1,13 +1,13 @@
 // connect to db to perform quieries
 const mysql = require("mysql");
-
-const db = require("db");
+//calling database
+const employeeTracker = require("./employeeTracker");
 // interact with user via the command line
 const inquirer = require("inquirer");
-// print MySQL rows to the console.
-require(console.tabe).config();
 // dotenv for environmental variables
-require('dotenv').config();
+require("dotenv").config();
+// print MySQL rows to the console.
+require("console.table");
 
 const connection = mysql.createConnection(
     process.env.DB_NAME,
@@ -22,17 +22,12 @@ const connection = mysql.createConnection(
 );
 
 
-connection.connect((err) => {
-    if (err) throw err;
-    start();
-});
+// connection.connect((err) => {
+//     if (err) throw err;
+//     start();
+// });
 
-connection.connect();
-
-// connection
-
-
-
+// connection.connect();
 
 
 
