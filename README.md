@@ -55,7 +55,7 @@ Open `terminal`
 run command `mysql -u -root -p to connect to the database. Enter password to authorize.
 `Welcome to the MySQL monitor`, next type `mysql> status` get status information from the server or `help` for more option.
 confirm connection with database and server, then `quit` mysql. 
-run command `node employeeTracker`, then `npm start`
+run command `node employeeTracker`, then `npm start` to answer the prompts.
 
 
 
