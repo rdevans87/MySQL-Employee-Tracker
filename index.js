@@ -1,7 +1,7 @@
 const employeeTracker = require("./employeeTracker");
 const chalk = require('chalk');
 const figlet = require('figlet');
-const validate = require('./javascript/validate')
+const validate = require('./assets/logo')
 
 
 connection.connect((err) => {
@@ -13,12 +13,6 @@ connection.connect((err) => {
     //     let logo = logoContent
     //  document.textContent("Customer Management System<br>" + "Employee Tracker")
     //         console.log(logo)
-        
-    //  RendeDirectory(function()
+   //  RendeDirectory(function()
     
-    
-    
-    
-    //  };
-    // }
-    
+});
