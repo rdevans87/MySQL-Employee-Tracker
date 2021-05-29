@@ -148,13 +148,13 @@ const updateEmployeeRole = () => {
         if (err) console.log(err);
         roles = roles.map(role => {
         return {
-            name: id.title.salary.department_id,
-            value: role_id
+            name: role.title,
+            value: role.id,
         }
-        })
-    })
+    
+    )
 
-};
+});
 
 
 // BONUS: SQL to update employee by manager
@@ -168,9 +168,20 @@ const addNewEmployee = () => {
 
 const addNewRole = () => {
 
+//   inquirer.prompt {
+
+//         type: 'list'
+//    eee     name: 'departmen_id'
+//         message: ''
+
+//         }
+
+// }
+
 }
 
-const addNewDepartment = () => {
+
+const addNewDepartment = () =>eeeeeeeeeeeee {
 
 }
 const deleteCurrentEmployee = () => {
@@ -183,6 +194,9 @@ const deleteCurrentRole = () => {
 const deleteCurrentDepartment = () => {
 
 }
+
+
+
 
 
 
