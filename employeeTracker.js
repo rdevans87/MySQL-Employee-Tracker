@@ -1,13 +1,13 @@
 // connect to db to perform quieries
-const mysql = require("mysql");
+const mysql = require('mysql');
 //calling database
-const employeeTracker = require("./employeeTracker");
+const employeeTracker = require('./employeeTracker');
 // interact with user via the command line
-const inquirer = require("inquirer");
+const inquirer = require('inquirer');
 // dotenv for environmental variables
-require("dotenv").config();
+require('dotenv').config();
 // print MySQL rows to the console.
-require("console.table");
+require('console.table');
 
 const connection = mysql.createConnection(
     process.env.DB_NAME,
@@ -38,16 +38,16 @@ const connection = mysql.createConnection(
 const promptUser = () => {
 inquirer.prompt([
 
-        { 
-        
-        name: 'choices',
-        type: 'list',  
-        choices: [
-
+    { 
+      name: 'choices',
+      type: 'list',  
+      message: 'Please select an option',
+      choices: [
         'View All Employes',
         'View All Roles',
         'View all Departments',
-        'View All Employee By Department',
+        'View Employees By Department',
+        'View Department Budgets',
         'Update Employee Role',
         'Update Employee Manager',
         'Add New Employee',
@@ -59,7 +59,7 @@ inquirer.prompt([
         'Exit'
         ]
     }
-])    'View Department Budgets',
+])    
 
 
 
