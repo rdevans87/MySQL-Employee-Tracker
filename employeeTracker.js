@@ -246,7 +246,46 @@ const addNewEmployee = () => {
 }
 
 const addNewRole = () => {
+   connection.query('SELECT * FROM department', (err, department) => {
+   if (err) console.log(err);
+   departments = departments.map((department) => {
+    return {
+     name: department.name,
+     value: department.id,
+    };
+});
+    inquirer.prompt([
+        {
+        type: 'input',
+        name: 'newRole',
+        message: 'Enter title of new role.'
+        },
+        {
+        type: 'input',
+        name: 'salary',
+        message: 'Enter salary of new role.'
+        },
+        {
+        type: 'list',
+        name: 'department',
+        message: 'Enter department of new role.',
+        choices: departments,
+        },
+    ])
+    .then((data) => {
+     connection.query('INSERT INTO role SET ?'
 
+
+    }
+
+
+
+   }
+
+
+
+
+    }
 
 
 }
