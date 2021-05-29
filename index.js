@@ -58,18 +58,16 @@
 // }
 
 
+// const deleteCurrentEmployee = () => {
+//     const query = 'DELETE * FROM employee_table WHERE 
 
+// }
 
-const deleteCurrentEmployee = () => {
-    const query = 'DELETE * FROM employee_table WHERE 
+// const deleteCurrentRole = () => {
 
-}
+// }
+// const deleteCurrentDepartment = () => {
 
-const deleteCurrentRole = () => {
-
-}
-const deleteCurrentDepartment = () => {
-
-}
+// }
 
 

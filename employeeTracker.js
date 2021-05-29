@@ -1,5 +1,5 @@
 // connect to db to perform quieries
-const mysql = require('mysql');
+const mysql = require('mysql2');
 //calling database
 const employeeTracker = require('./employeeTracker');
 // interact with user via the command line
@@ -29,18 +29,18 @@ const connection = mysql.createConnection(
 
 );
 
-connection.connect((err) => {
-    if (err) throw err;
-    console.log(chalk.yellow.bold('==========================================================================='));
-    console.log(``);
-    console.log(chalk.red.bold(figlet.textSync('EMPLOYEE TRACKER SYSTEM')));
-    console.log(``);
-    console.log(`                                                                    ` + chalk.green.bold('Created By: Ryan Evans'));                                                     
-    console.log(``);
-    console.log(chalk.yello.bold(`==============================================================================`));
-    menuPrompt();
+// connection.connect((err) => {
+//     if (err) throw err;
+//     console.log(chalk.yellow.bold('==========================================================================='));
+//     console.log(``);
+//     console.log(chalk.red.bold(figlet.textSync('EMPLOYEE TRACKER SYSTEM')));
+//     console.log(``);
+//     console.log(`                                                                    ` + chalk.green.bold('Created By: Ryan Evans'));                                                     
+//     console.log(``);
+//     console.log(chalk.yello.bold(`==============================================================================`));
+//     menuPrompt();
 
-});
+// });
 
 
 const menuPrompt = () => {
@@ -254,7 +254,7 @@ const addNewEmployee = () => {
 }
 
 const addNewRole = () => {
-   connection.query('SELECT * FROM department', (err, department) => {
+   connection.query('SELECT * FROM department', (err, departments) => {
    if (err) console.log(err);
    departments = departments.map((department) => {
     return {
@@ -288,9 +288,8 @@ const addNewRole = () => {
       department_id: data.department.id,
      },
      function (err) { 
-        if (err) throw err; 
-    }
-    
+      if (err) throw err; 
+    },
     );
      console.log('New role added to database')
      viewAllRoles();

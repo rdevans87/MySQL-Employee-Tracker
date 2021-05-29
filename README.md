@@ -56,8 +56,6 @@ run command `node employeeTracker`, then `npm start` to answer the prompts.
   * Add departments, roles, employees
   * View departments, roles, employees
   * Update employee roles
-
-
 ## Submitted for review:
 
 * The URL of the GitHub repository
