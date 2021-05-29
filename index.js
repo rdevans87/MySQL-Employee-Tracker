@@ -56,3 +56,20 @@
 // const updateEmployeeManager = () => {
 
 // }
+
+
+
+
+const deleteCurrentEmployee = () => {
+    const query = 'DELETE * FROM employee_table WHERE 
+
+}
+
+const deleteCurrentRole = () => {
+
+}
+const deleteCurrentDepartment = () => {
+
+}
+
+

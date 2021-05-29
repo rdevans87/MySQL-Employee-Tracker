@@ -4,10 +4,18 @@ const mysql = require('mysql');
 const employeeTracker = require('./employeeTracker');
 // interact with user via the command line
 const inquirer = require('inquirer');
+// terminal string styling
+const chalk = require('chalk');
+// implement FIGfont spec in Javascript
+const figlet = require('figlet');
 // dotenv for environmental variables
 require('dotenv').config();
 // print MySQL rows to the console.
 require('console.table');
+
+
+// const validate = require('./assets/logo')
+// const validator = require('validator')
 
 const connection = mysql.createConnection(
     process.env.DB_NAME,
@@ -21,19 +29,19 @@ const connection = mysql.createConnection(
 
 );
 
-// connection.connect((err) => {
-//     if (err) throw err;
-//     console.log(chalk.yellow.bold('==========================================================================='));
-//     console.log(``);
-//     console.log(chalk.red.bold(figlet.textSync('EMPLOYEE TRACKER SYSTEM')));
-//     console.log(``);
-//     console.log(`                                                                    ` + chalk.green.bold('Created By: Ryan Evans'));                                                     
-//     console.log(``);
-//     console.log(chalk.yello.bold(`==============================================================================`));
-//     menuPrompt();
+connection.connect((err) => {
+    if (err) throw err;
+    console.log(chalk.yellow.bold('==========================================================================='));
+    console.log(``);
+    console.log(chalk.red.bold(figlet.textSync('EMPLOYEE TRACKER SYSTEM')));
+    console.log(``);
+    console.log(`                                                                    ` + chalk.green.bold('Created By: Ryan Evans'));                                                     
+    console.log(``);
+    console.log(chalk.yello.bold(`==============================================================================`));
+    menuPrompt();
 
-// });
-menuPrompt();
+});
+
 
 const menuPrompt = () => {
     inquirer.prompt([
@@ -316,31 +324,14 @@ const addNewDepartment = () => {
 };
 
 
-
-
-    ])
-
-}
-const deleteCurrentEmployee = () => {
-
-}
-
-const deleteCurrentRole = () => {
-
-}
-const deleteCurrentDepartment = () => {
-
-}
-
-
-
-
-
-
-
-
-
-
-
 module.exports = connection;
 
+
+
+// ## Bonus
+
+// * The command-line application should allow users to:
+//   * Update employee managers
+//   * View employees by manager
+//   * Delete departments, roles, and employees
+//   * View the total utilized budget of a department -- ie the combined salaries of all employees in that department
