@@ -32,9 +32,9 @@ const connection = mysql.createConnection(
 //     console.log(chalk.yello.bold(`==============================================================================`));
 //     promptUser();
 // });
-    promptUser();
+    menuPrompt();
 
-const promptUser = () => {
+const menuPrompt = () => {
     inquirer.prompt([
         {
             name: 'choices',
@@ -109,9 +109,9 @@ const promptUser = () => {
 };
 
 
-
+//SQL SELECT * FROM statement for choices
 const viewAllEmployees = () => {
-    const query = 'SELECT employee.id, employee.first_name, employee.last_name, role.title, role.salary, department.name, employee_manager'
+    const query =  'SELECT * FROM employee_table,'
 
 }
 
