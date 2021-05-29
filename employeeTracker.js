@@ -33,7 +33,7 @@ const connection = mysql.createConnection(
 //     menuPrompt();
 
 // });
-    menuPrompt();
+menuPrompt();
 
 const menuPrompt = () => {
     inquirer.prompt([
@@ -59,12 +59,12 @@ const menuPrompt = () => {
             ]
         }
     ])
-           .then((answers) => {
-            const {choices} = answers;
+        .then((answers) => {
+            const { choices } = answers;
 
             if (choices === 'View All Employees') {
                 viewAllEmployees();
-            }      
+            }
             if (choices === 'View All Roles') {
                 viewAllRoles();
             }
@@ -106,39 +106,45 @@ const menuPrompt = () => {
             }
 
         });
-       
+
 };
 
 
 //SQL SELECT * FROM statements for choices
 const viewAllEmployees = () => {
-    const query =  'SELECT * FROM employee_table';
-    connection.query(query, (err,res) => {
-    if (err){ res.json(err) }; 
-    console.table(res);
+    const query = 'SELECT * FROM employee_table';
+    connection.query(query, (err, res) => {
+        if (err) { res.json(err) };
+        console.table(res);
     })
     menuPrompt();
 }
 
 const viewAllRoles = () => {
-    const query =  'SELECT * FROM department_table';
-    connection.query(query, (err,res) => {
-    if (err){res.json(err)}; 
-    console.table(res);
+    const query = 'SELECT * FROM role_table';
+    connection.query(query, (err, res) => {
+        if (err) { res.json(err) };
+        console.table(res);
     })
     menuPrompt();
 }
 
 const viewAllDepartments = () => {
-    const query =  'SELECT * FROM department_table';
-    connection.query(query, (err,res) => {
-    if (err){ res.json(err) }; 
-    console.table(res);
+    const query = 'SELECT * FROM department_table';
+    connection.query(query, (err, res) => {
+        if (err) { res.json(err) };
+        console.table(res);
     })
     menuPrompt();
 }
 
 const viewAllEmployeesByDepartment = () => {
+    const query = 'SELECT * FROM department_table ORDER BY employee_id';
+    connection.query(query, (err, res) => {
+        if (err) { res.json(err) };
+        console.table(res);
+    })
+    menuPrompt();
 
 }
 
@@ -160,7 +166,7 @@ const addNewEmployee = () => {
 
 const addNewRole = () => {
 
-} 
+}
 
 const addNewDepartment = () => {
 
@@ -171,7 +177,7 @@ const removeCurrentEmployee = () => {
 
 const removeCurrentRole = () => {
 
-} 
+}
 const removeCurrentDepartment = () => {
 
 }
