@@ -60,7 +60,39 @@ inquirer.prompt([
         ]
     }
 ])    
+.then((answers) => {
+   const {choices} = answers;
 
+   if (choices === 'View all Employees') {
+        viewAllEmployees();
+   }
+   if (choices === 'View all Employees') {
+    viewAllEmployees();
+   }
+   if (choices === 'View all Employees') {
+   viewAllEmployees();
+   }
+   if (choices === 'View all Employees') {
+    viewAllEmployees();
+   }
+   if (choices === 'View all Employees') {
+        viewAllEmployees();
+   }
+   if (choices === 'View all Employees') {
+        viewAllEmployees();
+   }
+   if (choices === 'View all Employees') {
+        viewAllEmployees();
+   }
+   if (choices === 'View all Employees') {
+        viewAllEmployees();
+   }  
+    if (choices === 'View all Employees') {
+       viewAllEmployees();
+    }
+
+
+} 
 
 
 
