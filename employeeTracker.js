@@ -197,17 +197,33 @@ const updateEmployeeRole = () => {
   });
 };
 
-
-
-
-// BONUS: SQL to update employee by manager
-const updateEmployeeManager = () => {
-
-}
-
 const addNewEmployee = () => {
-
-}
+connection.query('SELECT * FROM role', (err, roles) => {
+    if (err) console.log(err);
+    roles = roles.map((role) => {
+    return {
+        name: role.title,
+        value: role.id,
+    };
+  });
+  inquirer.prompt([
+    {
+     type: 'input',
+     name: 'firstName',
+     message: 'Enter first name of new employee...'
+    },
+    {
+     type: 'input',
+     name: 'lastName',
+     message: 'Enter last name of new employee...'
+    },
+    {
+     type: 'input',
+     name: 'firstName',
+     message: 'Enter new employee role',
+     choices: roles,
+    },
+])
 
 const addNewRole = () => {
 

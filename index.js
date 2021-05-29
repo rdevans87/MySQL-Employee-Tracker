@@ -50,3 +50,9 @@
 // if (choices === 'View Department Budgets') {
             //     viewDepartmentBudgets();
             
+
+
+            // BONUS: SQL to update employee by manager
+// const updateEmployeeManager = () => {
+
+// }
