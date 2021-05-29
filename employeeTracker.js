@@ -311,13 +311,9 @@ const addNewDepartment = () => {
      }
      );
      console.log('New department added to database')
-
-
-
-     }
-
-
-    }
+     viewAllDepartments();
+    });
+};
 
 
 
