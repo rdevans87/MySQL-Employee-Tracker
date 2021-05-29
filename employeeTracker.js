@@ -105,12 +105,11 @@ const menuPrompt = () => {
 
 };
 
-
 //SQL SELECT * FROM statements for choices
 const viewAllEmployees = () => {
     const query = 'SELECT * FROM employee_table';
     connection.query(query, (err, res) => {
-        if (err) { res.json(err) };
+        if (err) throw err;
         console.table(res);
     })
     menuPrompt();
@@ -119,7 +118,7 @@ const viewAllEmployees = () => {
 const viewAllRoles = () => {
     const query = 'SELECT * FROM role_table';
     connection.query(query, (err, res) => {
-        if (err) { res.json(err) };
+        if (err) throw err;
         console.table(res);
     })
     menuPrompt();
@@ -128,26 +127,36 @@ const viewAllRoles = () => {
 const viewAllDepartments = () => {
     const query = 'SELECT * FROM department_table';
     connection.query(query, (err, res) => {
-        if (err) { res.json(err) };
+        if (err) throw err;
         console.table(res);
     })
     menuPrompt();
 }
 
-// BONUS: SQL GROUP BY statement to view mployees by manager
+// BONUS: SQL GROUP BY statement to view employees by manager
 const viewEmployeesByManager = () => {
     const query = 'SELECT * FROM employee_table GROUP BY department_id ORDER BY manager_id';
     connection.query(query, (err, res) => {
-        if (err) { res.json(err) };
+        if (err) throw err;
         console.table(res);
     })
     menuPrompt();
 }
 
 const updateEmployeeRole = () => {
+    const query = 'SELECT * FROM role_id';
+    connection.query(query, (err, roles) => {
+        if (err) console.log(err);
+        roles = roles.map(role => {
+        return {
+            name: role.EmployeeTitle
+        })
+    
 
-}
 
+})
+
+// BONUS: SQL to update employee by manager
 const updateEmployeeManager = () => {
 
 }
