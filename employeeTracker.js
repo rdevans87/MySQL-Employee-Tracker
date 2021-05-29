@@ -1,21 +1,19 @@
 // connect to db to perform quieries
-const mysql = require('mysql2');
-//calling database
-const employeeTracker = require('./employeeTracker');
+const mysql = require('mysql');
+// //calling database
+// const connection = require('./employeeTracker');
 // interact with user via the command line
 const inquirer = require('inquirer');
 // terminal string styling
 const chalk = require('chalk');
 // implement FIGfont spec in Javascript
-const figlet = require('figlet');
+require('figlet');
 // dotenv for environmental variables
 require('dotenv').config();
 // print MySQL rows to the console.
 require('console.table');
 
-
-// const validate = require('./assets/logo')
-// const validator = require('validator')
+const validator = require('validator')
 
 const connection = mysql.createConnection(
     process.env.DB_NAME,
@@ -29,19 +27,16 @@ const connection = mysql.createConnection(
 
 );
 
-// connection.connect((err) => {
-//     if (err) throw err;
-//     console.log(chalk.yellow.bold('==========================================================================='));
-//     console.log(``);
-//     console.log(chalk.red.bold(figlet.textSync('EMPLOYEE TRACKER SYSTEM')));
-//     console.log(``);
-//     console.log(`                                                                    ` + chalk.green.bold('Created By: Ryan Evans'));                                                     
-//     console.log(``);
-//     console.log(chalk.yello.bold(`==============================================================================`));
-//     menuPrompt();
-
-// });
-
+connection.connect();
+    if (err) throw err;
+    console.log(chalk.yellow.bold('==========================================================================='));
+    console.log(``);
+    console.log(chalk.red.bold(figlet.textSync('EMPLOYEE TRACKER SYSTEM')));
+    console.log(``);
+    console.log(`                                                                    ` + chalk.green.bold('Created By: Ryan Evans'));                                                     
+    console.log(``);
+    console.log(chalk.yello.bold(`==============================================================================`));
+    menuPrompt();
 
 const menuPrompt = () => {
     inquirer.prompt([
@@ -254,72 +249,71 @@ const addNewEmployee = () => {
 }
 
 const addNewRole = () => {
-   connection.query('SELECT * FROM department', (err, departments) => {
-   if (err) console.log(err);
-   departments = departments.map((department) => {
-    return {
-     name: department.name,
-     value: department.id,
-    };
-});
-    inquirer.prompt([
-        {
-        type: 'input',
-        name: 'newRole',
-        message: 'Enter title of new role.'
-        },
-        {
-        type: 'input',
-        name: 'salary',
-        message: 'Enter salary of new role.'
-        },
-        {
-        type: 'list',
-        name: 'department',
-        message: 'Enter department of new role.',
-        choices: departments,
-        },
-    ])
-    .then((data) => {
-     connection.query('INSERT INTO role SET ?',
-     {
-      title: data.newRole,
-      salary: data.newSalary,
-      department_id: data.department.id,
-     },
-     function (err) { 
-      if (err) throw err; 
-    },
-    );
-     console.log('New role added to database')
-     viewAllRoles();
+    connection.query('SELECT * FROM department', (err, departments) => {
+        if (err) console.log(err);
+        departments = departments.map((department) => {
+            return {
+                name: department.name,
+                value: department.id,
+            };
+        });
+        inquirer.prompt([
+            {
+                type: 'input',
+                name: 'newRole',
+                message: 'Enter title of new role.'
+            },
+            {
+                type: 'input',
+                name: 'newsalary',
+                message: 'Enter salary of new role.',
+            },
+            {
+                type: 'list',
+                name: 'departmentId',
+                message: 'Enter department of new role.',
+                choices: departments,
+            },
+        ])
+            .then((data) => {
+                connection.query('INSERT INTO role SET ?',
+                    {
+                        title: data.newRole,
+                        salary: data.newSalary,
+                        department_id: data.departmentId,
+                    },
+                    function (err) {
+                        if (err) throw err;
+                    }
+                );
+                console.log('New role added to database')
+                viewAllRoles();
+            });
 
     });
-
-});
 
 };
 
 const addNewDepartment = () => {
     inquirer.prompt([
         {
-        type: 'input',
-        name: 'newDepartment',
-        message: 'Enter new department name...'
+            type: 'input',
+            name: 'newDepartment',
+            message: 'Enter new department name...'
         },
     ])
-    .then((data) => {
-     connection.query('INSERT INTO department SET ?',
-     {
-      name: data.newDepartment,
-     },
-     function (err) {
-       if (err) throw err;
-     }
-     );
-     console.log('New department added to database')
-     viewAllDepartments();
-    });
+        .then((data) => {
+            connection.query('INSERT INTO department SET ?',
+                {
+                    name: data.newDepartment,
+                },
+                function (err) {
+                    if (err) throw err;
+                }
+            );
+            console.log('New department added to database')
+            viewAllDepartments();
+        });
 };
 
 
