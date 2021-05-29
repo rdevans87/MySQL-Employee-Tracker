@@ -7,7 +7,7 @@ const inquirer = require('inquirer');
 // terminal string styling
 const chalk = require('chalk');
 // implement FIGfont spec in Javascript
-require('figlet');
+const figlet = require('figlet');
 // dotenv for environmental variables
 require('dotenv').config();
 // print MySQL rows to the console.
@@ -28,14 +28,13 @@ const connection = mysql.createConnection(
 );
 
 connection.connect();
-    if (err) throw err;
     console.log(chalk.yellow.bold('==========================================================================='));
     console.log(``);
-    console.log(chalk.red.bold(figlet.textSync('EMPLOYEE TRACKER SYSTEM')));
+    console.log(chalk.red.bold(figlet.textSync('EMPLOYEE TRACKER')));
     console.log(``);
-    console.log(`                                                                    ` + chalk.green.bold('Created By: Ryan Evans'));                                                     
+    console.log(`                               ` + chalk.green.bold('Created By: Ryan Evans'));                                                     
     console.log(``);
-    console.log(chalk.yello.bold(`==============================================================================`));
+    console.log(chalk.yellow.bold(`===========================================================================`));
     menuPrompt();
 
 const menuPrompt = () => {
