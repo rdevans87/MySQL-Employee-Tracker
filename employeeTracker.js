@@ -146,13 +146,18 @@ const viewEmployeesByManager = () => {
 const updateEmployeeRole = () => {
     connection.query('SELECT * FROM role', (err, roles) => {
         if (err) console.log(err);
-        roles = roles.map(role => {
+        employees = employees.map((employee) => {
+            name: `${employee.first_name} ${employee.last_name}`,
+            value: employee.id,
+        };
+    });
+      connection.query('SELECT * FROM role', (err, roles) => {
+          if (err) console.log(err);
+      roles = roles.map((role) => {
         return {
             name: role.title,
             value: role.id,
         }
-    
-    )
 
 });
 
