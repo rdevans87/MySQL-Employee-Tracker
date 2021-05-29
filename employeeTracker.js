@@ -53,9 +53,9 @@ const promptUser = () => {
                 'Add New Employee',
                 'Add New Role',
                 'Add New Department',
-                'Remove Employee',
-                'Remove Role',
-                'Remove Department',
+                'Remove Current Employee',
+                'Remove Current Role',
+                'Remove Current Department',
                 'Exit'
             ]
         }
@@ -65,20 +65,23 @@ const promptUser = () => {
 
             if (choices === 'View All Employees') {
                 viewAllEmployees();
+            }      
+            if (choices === 'View All Roles') {
+                viewAllRoles();
             }
             if (choices === 'View All Departments') {
                 viewAllDepartments();
             }
             if (choices === 'View All Employees by Department') {
-                viewEmployeesByDepartment();
+                viewAllEmployeesByDepartment();
             }
             if (choices === 'View Department Budgets') {
                 viewDepartmentBudgets();
             }
-            if (choices === 'View Department Budgets') {
+            if (choices === 'Update Employee Role') {
                 updateEmployeeRole();
             }
-            if (choices === 'View Department Budgets') {
+            if (choices === 'Update Employee Manager') {
                 updateEmployeeManager();
             }
             if (choices === 'Add New Employee') {
@@ -91,13 +94,13 @@ const promptUser = () => {
                 addNewDepartment();
             }
             if (choices === 'Remove Employee') {
-                removeEmployee();
+                removeCurrentEmployee();
             }
             if (choices === 'Remove Role') {
-                removeRole();
+                removeCurrentRole();
             }
             if (choices === 'Remove Department') {
-                removeDepartment();
+                removeCurrentDepartment();
             }
             if (choices === 'Exit') {
                 connection.end();
@@ -106,6 +109,60 @@ const promptUser = () => {
         });
 
 };
+
+const viewAllEmployees = () => {
+
+}
+
+const viewAllRoles = () => {
+
+}
+
+const viewAllDepartments = () => {
+
+}
+
+const viewAllEmployeesByDepartment = () => {
+
+}
+
+const viewDepartmentBudgets = () => {
+
+}
+
+const updateEmployeeRole = () => {
+
+}
+
+const updateEmployeeManager = () => {
+
+}
+
+const addNewEmployee = () => {
+
+}
+
+const addNewRole = () => {
+
+} 
+
+const addNewDepartment = () => {
+
+}
+const removeCurrentEmployee = () => {
+
+}
+
+const removeCurrentRole = () => {
+
+} 
+const removeCurrentDepartment = () => {
+
+}
+
+
+
+
 
 
 
