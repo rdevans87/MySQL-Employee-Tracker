@@ -42,10 +42,10 @@ const menuPrompt = () => {
             type: 'list',
             message: 'PLEASE SELECT A MENU OPTION...',
             choices: [
-                'View All Employes',
+                'View All Employees',
                 'View All Roles',
                 'View All Departments',
-                'View All Employees By Department',
+                'View Employees By Manager',
                 'View Department Budgets',
                 'Update Employee Role',
                 'Update Employee Manager',
@@ -71,8 +71,8 @@ const menuPrompt = () => {
             if (choices === 'View All Departments') {
                 viewAllDepartments();
             }
-            if (choices === 'View All Employees by Department') {
-                viewAllEmployeesByDepartment();
+            if (choices === 'View Employees By Manager') {
+                viewEmployeesByManager();
             }
             if (choices === 'View Department Budgets') {
                 viewDepartmentBudgets();
@@ -92,13 +92,13 @@ const menuPrompt = () => {
             if (choices === 'Add New Department') {
                 addNewDepartment();
             }
-            if (choices === 'Remove Employee') {
+            if (choices === 'Delete Employee') {
                 removeCurrentEmployee();
             }
-            if (choices === 'Remove Role') {
+            if (choices === 'Delete Role') {
                 removeCurrentRole();
             }
-            if (choices === 'Remove Department') {
+            if (choices === 'Delete Department') {
                 removeCurrentDepartment();
             }
             if (choices === 'Exit') {
@@ -138,8 +138,9 @@ const viewAllDepartments = () => {
     menuPrompt();
 }
 
-const viewAllEmployeesByDepartment = () => {
-    const query = 'SELECT * FROM department_table ORDER BY employee_id';
+// BONUS: SQL GROUP BY statement to view mployees by manager
+const viewEmployeesByManager = () => {
+    const query = 'SELECT * FROM employee_table GROUP BY department_id ORDER BY manager_id';
     connection.query(query, (err, res) => {
         if (err) { res.json(err) };
         console.table(res);
