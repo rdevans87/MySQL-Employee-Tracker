@@ -273,23 +273,27 @@ const addNewRole = () => {
         },
     ])
     .then((data) => {
-     connection.query('INSERT INTO role SET ?'
-
-
+     connection.query('INSERT INTO role SET ?',
+     {
+      title: data.newRole,
+      salary: data.newSalary,
+      department_id: data.department.id,
+     },
+     function (err) { 
+        if (err) throw err; 
     }
+    
+    );
+     console.log('New role added to database')
+     viewAllRoles();
 
+    });
 
+});
 
-   }
+};
 
-
-
-
-    }
-
-
-}
-
+const 
 
 const addNewDepartment = () => {
 
