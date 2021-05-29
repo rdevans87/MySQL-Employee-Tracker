@@ -144,17 +144,18 @@ const viewEmployeesByManager = () => {
 }
 
 const updateEmployeeRole = () => {
-    const query = 'SELECT * FROM role_id';
-    connection.query(query, (err, roles) => {
+    connection.query('SELECT * FROM role', (err, roles) => {
         if (err) console.log(err);
         roles = roles.map(role => {
         return {
-            name: role.EmployeeTitle
+            name: id.title.salary.department_id,
+            value: role_id
+        }
         })
-    
+    })
 
+};
 
-})
 
 // BONUS: SQL to update employee by manager
 const updateEmployeeManager = () => {
@@ -192,17 +193,3 @@ const deleteCurrentDepartment = () => {
 
 module.exports = connection;
 
-
-// BONUS: View the total utilized budget of a department -- ie the combined salaries of all employees in that department
-// 'View Department Budgets',
-// const viewDepartmentBudgets = () => {
-//     const query = 'SELECT * SUM FROM deparyment_table GROUP BY department_id ORDER BY manager_id';
-//     connection.query(query, (err, res) => {
-//         if (err) { res.json(err) };
-//         console.table(res);
-//     })
-//     menuPrompt();
-// }
-// if (choices === 'View Department Budgets') {
-            //     viewDepartmentBudgets();
-            // }

@@ -36,3 +36,17 @@
 // //    //  RendeDirectory(function()
     
 // // });
+
+// BONUS: View the total utilized budget of a department -- ie the combined salaries of all employees in that department
+// 'View Department Budgets',
+// const viewDepartmentBudgets = () => {
+//     const query = 'SELECT * SUM FROM deparyment_table GROUP BY department_id ORDER BY manager_id';
+//     connection.query(query, (err, res) => {
+//         if (err) { res.json(err) };
+//         console.table(res);
+//     })
+//     menuPrompt();
+// }
+// if (choices === 'View Department Budgets') {
+            //     viewDepartmentBudgets();
+            
