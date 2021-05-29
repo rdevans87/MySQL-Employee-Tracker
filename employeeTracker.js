@@ -46,15 +46,15 @@ const menuPrompt = () => {
                 'View All Roles',
                 'View All Departments',
                 'View Employees By Manager',
-                'View Department Budgets',
+                // 'View Department Budgets',
                 'Update Employee Role',
                 'Update Employee Manager',
                 'Add New Employee',
                 'Add New Role',
                 'Add New Department',
-                'Remove Current Employee',
-                'Remove Current Role',
-                'Remove Current Department',
+                'Delete Current Employee',
+                'Delete Current Role',
+                'Delete Current Department',
                 'Exit Menu'
             ]
         }
@@ -74,9 +74,9 @@ const menuPrompt = () => {
             if (choices === 'View Employees By Manager') {
                 viewEmployeesByManager();
             }
-            if (choices === 'View Department Budgets') {
-                viewDepartmentBudgets();
-            }
+            // if (choices === 'View Department Budgets') {
+            //     viewDepartmentBudgets();
+            // }
             if (choices === 'Update Employee Role') {
                 updateEmployeeRole();
             }
@@ -93,13 +93,13 @@ const menuPrompt = () => {
                 addNewDepartment();
             }
             if (choices === 'Delete Employee') {
-                removeCurrentEmployee();
+                deleteCurrentEmployee();
             }
             if (choices === 'Delete Role') {
-                removeCurrentRole();
+                deleteCurrentRole();
             }
             if (choices === 'Delete Department') {
-                removeCurrentDepartment();
+                deleteCurrentDepartment();
             }
             if (choices === 'Exit') {
                 connection.end();
@@ -146,12 +146,17 @@ const viewEmployeesByManager = () => {
         console.table(res);
     })
     menuPrompt();
-
 }
 
-const viewDepartmentBudgets = () => {
+// const viewDepartmentBudgets = () => {
+//     const query = 'SELECT * SUM FROM deparyment_table GROUP BY department_id ORDER BY manager_id';
+//     connection.query(query, (err, res) => {
+//         if (err) { res.json(err) };
+//         console.table(res);
+//     })
+//     menuPrompt();
 
-}
+// }
 
 const updateEmployeeRole = () => {
 

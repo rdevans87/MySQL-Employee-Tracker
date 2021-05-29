@@ -43,7 +43,7 @@ username: root
 password: test123
 
  ```
-`Welcome to the MySQL monitor`, next type `mysql> status` get status information from the server or `help` for more options.
+`Welcome to the MySQL monitor`, next type `mysql> status` to request status information from the server or `help` for more options.
 confirm connection with database and server, then `quit` mysql. 
 run command `node employeeTracker`, then `npm start` to answer the prompts.
 
