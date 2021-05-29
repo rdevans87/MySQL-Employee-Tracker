@@ -21,15 +21,42 @@ const connection = mysql.createConnection(
 
 );
 
-
-
-
-
-
-//     start();
+// connection.connect((err) => {
+//     if (err) throw err;
+    
+//     console.log(chalk.yellow.bold('==========================================================================='));
+//     console.log(``);
+//     console.log(chalk.red.bold(figlet.textSync('Employee Tracker')));
+//     console.log(``);
+//     console.log(`                                                                    ` + chalk.green.bold('Created By: Ryan Evans'));                                                     
+//     console.log(``);
+//     console.log(chalk.yello.bold(`==============================================================================`));
+//     promptUser();
 // });
 
-// connection.connect();
+
+const promptUser = () => {
+inquirer.prompt([
+
+    { name: 'choices',
+      type: 'list',  
+      choices: [
+
+
+
+
+
+
+
+
+
+
+
+        
+      ]
+    
+    
+
 
 
 
