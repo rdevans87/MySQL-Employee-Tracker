@@ -174,15 +174,31 @@ const updateEmployeeRole = () => {
             choices: 'roles',
         },
       ])
-      .then(data) => {
+      .then((data) => {
         connection.query(
             'UPDATE employee SET ? WHERE?',
             [
+              {
+                role_id: data.selectNewRole,
+              },
+              {
+                id: data.selectEmployee,
+              },
+            ],
+            function (err) {
+               if (err) throw err;
+            }
+        );
+        console.log('Employee role updated');
+        viewAllRoles();
+      });
+  
+    });
+  });
+};
 
-                
-            ]
 
-      }
+
 
 // BONUS: SQL to update employee by manager
 const updateEmployeeManager = () => {
@@ -208,7 +224,7 @@ const addNewRole = () => {
 }
 
 
-const addNewDepartment = () =>eeeeeeeeeeeee {
+const addNewDepartment = () => {
 
 }
 const deleteCurrentEmployee = () => {
