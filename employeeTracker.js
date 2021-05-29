@@ -25,12 +25,12 @@ const connection = mysql.createConnection(
 //     if (err) throw err;
 //     console.log(chalk.yellow.bold('==========================================================================='));
 //     console.log(``);
-//     console.log(chalk.red.bold(figlet.textSync('Employee Tracker')));
+//     console.log(chalk.red.bold(figlet.textSync('EMPLOYEE TRACKER SYSTEM')));
 //     console.log(``);
 //     console.log(`                                                                    ` + chalk.green.bold('Created By: Ryan Evans'));                                                     
 //     console.log(``);
 //     console.log(chalk.yello.bold(`==============================================================================`));
-//     promptUser();
+//     menuPrompt();
 // });
     menuPrompt();
 
@@ -39,7 +39,7 @@ const menuPrompt = () => {
         {
             name: 'choices',
             type: 'list',
-            message: 'Please select an option',
+            message: 'PLEASE SELECT A MENU OPTION...',
             choices: [
                 'View All Employes',
                 'View All Roles',
@@ -54,7 +54,7 @@ const menuPrompt = () => {
                 'Remove Current Employee',
                 'Remove Current Role',
                 'Remove Current Department',
-                'Exit'
+                'Exit Menu'
             ]
         }
     ])
@@ -111,8 +111,12 @@ const menuPrompt = () => {
 
 //SQL SELECT * FROM statement for choices
 const viewAllEmployees = () => {
-    const query =  'SELECT * FROM employee_table,'
-
+    const query =  'SELECT * FROM employee_table';
+    connection.query(query, (err,res) => {
+    if (err){ res.json(err) }; 
+    console.table(res);
+    })
+    menuPrompt();
 }
 
 const viewAllRoles = () => {
