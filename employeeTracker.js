@@ -23,7 +23,7 @@ const connection = mysql.createConnection(
 
 // connection.connect((err) => {
 //     if (err) throw err;
-    
+
 //     console.log(chalk.yellow.bold('==========================================================================='));
 //     console.log(``);
 //     console.log(chalk.red.bold(figlet.textSync('Employee Tracker')));
@@ -36,78 +36,78 @@ const connection = mysql.createConnection(
 
 
 const promptUser = () => {
-inquirer.prompt([
+    inquirer.prompt([
 
-    { 
-      name: 'choices',
-      type: 'list',  
-      message: 'Please select an option',
-      choices: [
-        'View All Employes',
-        'View All Roles',
-        'View All Departments',
-        'View All Employees By Department',
-        'View Department Budgets',
-        'Update Employee Role',
-        'Update Employee Manager',
-        'Add New Employee',
-        'Add New Role',
-        'Add New Department',
-        'Remove Employee',
-        'Remove Role',
-        'Remove Department',
-        'Exit'
-        ]
-    }
-])    
-.then((answers) => {
-   const {choices} = answers;
+        {
+            name: 'choices',
+            type: 'list',
+            message: 'Please select an option',
+            choices: [
+                'View All Employes',
+                'View All Roles',
+                'View All Departments',
+                'View All Employees By Department',
+                'View Department Budgets',
+                'Update Employee Role',
+                'Update Employee Manager',
+                'Add New Employee',
+                'Add New Role',
+                'Add New Department',
+                'Remove Employee',
+                'Remove Role',
+                'Remove Department',
+                'Exit'
+            ]
+        }
+    ])
+        .then((answers) => {
+            const { choices } = answers;
 
-   if (choices === 'View All Employees') {
-        viewAllEmployees();
-   }
-   if (choices === 'View All Departments') {
-        viewAllDepartments();
-   }
-   if (choices === 'View All Employees by Department') {
-        viewEmployeesByDepartment();
-   }
-   if  (choices === 'View Department Budgets') {
-         viewDepartmentBudgets();
-   }
-    if  (choices === 'View Department Budgets') {
-        updateEmployeeRole();
-   }
-   if  (choices === 'View Department Budgets') {
-        updateEmployeeManager();
-    }   
-   if (choices === 'Add New Employee') {
-        addNewEmployee();
-   }
-   if (choices === 'Add New Role') {
-        addNewRole();
-   }
-   if (choices === 'Add New Department') {
-        addNewDepartment();
-   }
-   if (choices === 'Remove Employee') {
-        removeEmployee();
-   }
-   if (choices === 'Remove Role') {
-        removeRole();
-   }  
-   if (choices === 'Remove Department') {
-       removeDepartment();
-   }
-   if (choices === 'Exit') {
-       connection.end();
-    }  
-  
-  });
+            if (choices === 'View All Employees') {
+                viewAllEmployees();
+            }
+            if (choices === 'View All Departments') {
+                viewAllDepartments();
+            }
+            if (choices === 'View All Employees by Department') {
+                viewEmployeesByDepartment();
+            }
+            if (choices === 'View Department Budgets') {
+                viewDepartmentBudgets();
+            }
+            if (choices === 'View Department Budgets') {
+                updateEmployeeRole();
+            }
+            if (choices === 'View Department Budgets') {
+                updateEmployeeManager();
+            }
+            if (choices === 'Add New Employee') {
+                addNewEmployee();
+            }
+            if (choices === 'Add New Role') {
+                addNewRole();
+            }
+            if (choices === 'Add New Department') {
+                addNewDepartment();
+            }
+            if (choices === 'Remove Employee') {
+                removeEmployee();
+            }
+            if (choices === 'Remove Role') {
+                removeRole();
+            }
+            if (choices === 'Remove Department') {
+                removeDepartment();
+            }
+            if (choices === 'Exit') {
+                connection.end();
+            }
+
+        });
 
 };
 
-    
-    
+
+
 
 module.exports = connection;
