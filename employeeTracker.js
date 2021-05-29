@@ -31,6 +31,7 @@ const connection = mysql.createConnection(
 //     console.log(``);
 //     console.log(chalk.yello.bold(`==============================================================================`));
 //     menuPrompt();
+
 // });
     menuPrompt();
 
@@ -109,7 +110,7 @@ const menuPrompt = () => {
 };
 
 
-//SQL SELECT * FROM statement for choices
+//SQL SELECT * FROM statements for choices
 const viewAllEmployees = () => {
     const query =  'SELECT * FROM employee_table';
     connection.query(query, (err,res) => {
@@ -120,11 +121,21 @@ const viewAllEmployees = () => {
 }
 
 const viewAllRoles = () => {
-
+    const query =  'SELECT * FROM department_table';
+    connection.query(query, (err,res) => {
+    if (err){res.json(err)}; 
+    console.table(res);
+    })
+    menuPrompt();
 }
 
 const viewAllDepartments = () => {
-
+    const query =  'SELECT * FROM department_table';
+    connection.query(query, (err,res) => {
+    if (err){ res.json(err) }; 
+    console.table(res);
+    })
+    menuPrompt();
 }
 
 const viewAllEmployeesByDepartment = () => {
