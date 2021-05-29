@@ -144,13 +144,14 @@ const viewEmployeesByManager = () => {
 }
 
 const updateEmployeeRole = () => {
-    connection.query('SELECT * FROM role', (err, roles) => {
+    connection.query('SELECT * FROM role', (err, employees) => {
         if (err) console.log(err);
         employees = employees.map((employee) => {
+            return {
             name: `${employee.first_name} ${employee.last_name}`,
             value: employee.id,
-        };
-    });
+            };
+        });
       connection.query('SELECT * FROM role', (err, roles) => {
           if (err) console.log(err);
       roles = roles.map((role) => {
@@ -158,9 +159,30 @@ const updateEmployeeRole = () => {
             name: role.title,
             value: role.id,
         }
+      });
+      inquirer.prompt([
+        { 
+            type: 'list',
+            name: 'selectEmployee',
+            message: 'Select employee to update...',
+            choices: employees,        
+        },
+        {
+            type: 'list',
+            name: 'selectNewRole',
+            message: 'Select new employee role...',
+            choices: 'roles',
+        },
+      ])
+      .then(data) => {
+        connection.query(
+            'UPDATE employee SET ? WHERE?',
+            [
 
-});
+                
+            ]
 
+      }
 
 // BONUS: SQL to update employee by manager
 const updateEmployeeManager = () => {

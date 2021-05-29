@@ -1,0 +1,12 @@
+{
+
+// Controls if quick suggestions should show up while typing
+"editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": false
+},
+
+"editor.quickSuggestionsDelay": 15
+
+}
