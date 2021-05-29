@@ -38,21 +38,38 @@ const connection = mysql.createConnection(
 const promptUser = () => {
 inquirer.prompt([
 
-    { name: 'choices',
-      type: 'list',  
-      choices: [
-
-
-
-
-
-
-
-
-
-
-
+        { 
         
+        name: 'choices',
+        type: 'list',  
+        choices: [
+
+        'View All Employes',
+        'View All Roles',
+        'View all Departments',
+        'View All Employee By Department',
+        'Update Employee Role',
+        'Update Employee Manager',
+        'Add New Employee',
+        'Add New Role',
+        'Add New Department',
+        'Remove Employee',
+        'Remove Role',
+        'Remove Department',
+        'Exit'
+        ]
+    }
+])    'View Department Budgets',
+
+
+
+
+
+
+
+
+
+
       ]
     
     

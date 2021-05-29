@@ -52,7 +52,14 @@ Open `terminal`
 `npm i` to install your NPM package manager and required dependencies.
 `npm i inquirer`, `npm i console.table`, `npm i dotenv` to store environmental variables, 
 & `npm i mysql` (server and database)
-run command `mysql -u -root -p to connect to the database. Enter password to authorize.
+run command `mysql -u -root -p` to start MySQL, then type `username` and `password` to  credentials:
+
+```
+Test user
+username: root
+password: test123
+
+ ```
 `Welcome to the MySQL monitor`, next type `mysql> status` get status information from the server or `help` for more option.
 confirm connection with database and server, then `quit` mysql. 
 run command `node employeeTracker`, then `npm start` to answer the prompts.
