@@ -23,7 +23,6 @@ const connection = mysql.createConnection(
 
 // connection.connect((err) => {
 //     if (err) throw err;
-
 //     console.log(chalk.yellow.bold('==========================================================================='));
 //     console.log(``);
 //     console.log(chalk.red.bold(figlet.textSync('Employee Tracker')));
@@ -33,11 +32,10 @@ const connection = mysql.createConnection(
 //     console.log(chalk.yello.bold(`==============================================================================`));
 //     promptUser();
 // });
-
+    promptUser();
 
 const promptUser = () => {
     inquirer.prompt([
-
         {
             name: 'choices',
             type: 'list',
@@ -60,8 +58,8 @@ const promptUser = () => {
             ]
         }
     ])
-        .then((answers) => {
-            const { choices } = answers;
+           .then((answers) => {
+            const {choices} = answers;
 
             if (choices === 'View All Employees') {
                 viewAllEmployees();
@@ -107,10 +105,13 @@ const promptUser = () => {
             }
 
         });
-
+       
 };
 
+
+
 const viewAllEmployees = () => {
+    const query = 'SELECT employee.id, employee.first_name, employee.last_name, role.title, role.salary, department.name, employee_manager'
 
 }
 
