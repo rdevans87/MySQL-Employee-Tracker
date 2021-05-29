@@ -66,16 +66,19 @@ inquirer.prompt([
    if (choices === 'View all Employees') {
         viewAllEmployees();
    }
-   if (choices === 'View all Employees') {
-    viewAllEmployees();
+   if (choices === 'View all Departments') {
+        viewAllDepartments();
    }
-   if (choices === 'View all Employees') {
-   viewAllEmployees();
+   if (choices === 'View Employees by Department') {
+        viewEmployeesByDepartment();
    }
-   if (choices === 'View all Employees') {
-    viewAllEmployees();
+   if  (choices === 'View Department Budgets') {
+        addEmployee();
+    }
+   if (choices === 'Add Employee') {
+        addEmployee();
    }
-   if (choices === 'View all Employees') {
+   if (choices === '') {
         viewAllEmployees();
    }
    if (choices === 'View all Employees') {
@@ -87,9 +90,9 @@ inquirer.prompt([
    if (choices === 'View all Employees') {
         viewAllEmployees();
    }  
-    if (choices === 'View all Employees') {
+   if (choices === 'View all Employees') {
        viewAllEmployees();
-    }
+   }
 
 
 } 

@@ -18,13 +18,7 @@ Example database schema containing three tables:
 
 ![Database Schema](Assets/schema.png)
 
-  
 
-
-* Use the [MySQL](https://www.npmjs.com/package/mysql) NPM package tYou may wish to include a `seed.sql` file to pre-populate your database. This will make development of individual features much easier.
-
-
-* Use [console.table](https://www.npmjs.com/package/console.table)  There is a built-in version of `console.table`, but the NPM package formats the data a little better for our purposes.
 
 * You may wish to have a separate file containing functions for performing specific SQL queries you'll need to use. Could a `constructor function` or a class be helpful for organizing these?
 
