@@ -45,8 +45,8 @@ inquirer.prompt([
       choices: [
         'View All Employes',
         'View All Roles',
-        'View all Departments',
-        'View Employees By Department',
+        'View All Departments',
+        'View All Employees By Department',
         'View Department Budgets',
         'Update Employee Role',
         'Update Employee Manager',
@@ -63,54 +63,51 @@ inquirer.prompt([
 .then((answers) => {
    const {choices} = answers;
 
-   if (choices === 'View all Employees') {
+   if (choices === 'View All Employees') {
         viewAllEmployees();
    }
-   if (choices === 'View all Departments') {
+   if (choices === 'View All Departments') {
         viewAllDepartments();
    }
-   if (choices === 'View Employees by Department') {
+   if (choices === 'View All Employees by Department') {
         viewEmployeesByDepartment();
    }
    if  (choices === 'View Department Budgets') {
-        addEmployee();
-    }
-   if (choices === 'Add Employee') {
-        addEmployee();
+         viewDepartmentBudgets();
    }
-   if (choices === '') {
-        viewAllEmployees();
+    if  (choices === 'View Department Budgets') {
+        updateEmployeeRole();
    }
-   if (choices === 'View all Employees') {
-        viewAllEmployees();
+   if  (choices === 'View Department Budgets') {
+        updateEmployeeManager();
+    }   
+   if (choices === 'Add New Employee') {
+        addNewEmployee();
    }
-   if (choices === 'View all Employees') {
-        viewAllEmployees();
+   if (choices === 'Add New Role') {
+        addNewRole();
    }
-   if (choices === 'View all Employees') {
-        viewAllEmployees();
+   if (choices === 'Add New Department') {
+        addNewDepartment();
+   }
+   if (choices === 'Remove Employee') {
+        removeEmployee();
+   }
+   if (choices === 'Remove Role') {
+        removeRole();
    }  
-   if (choices === 'View all Employees') {
-       viewAllEmployees();
+   if (choices === 'Remove Department') {
+       removeDepartment();
    }
+   if (choices === 'Exit') {
+       connection.end();
+    }  
+  
+  });
 
+};
 
-} 
-
-
-
-
-
-
-
-
-
-      ]
     
     
-
-
-
-
 
 module.exports = connection;
