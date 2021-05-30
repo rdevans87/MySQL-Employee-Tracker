@@ -1,7 +1,5 @@
 // connect to db to perform quieries
 const mysql = require('mysql2');
-// //calling database
-// const connection = require('./employeeTracker');
 // interact with user via the command line
 const inquirer = require('inquirer');
 // terminal string styling
@@ -19,7 +17,7 @@ const connection = mysql.createConnection({
         port: 3306,
         user: 'root',
         password: process.env.DB_PASSWORD,
-        database: 'employeetracker_db'       
+        database: 'employeeTracker_db'       
 });
 
 
@@ -108,7 +106,7 @@ const printMenuPrompts = () => {
 
 //SQL SELECT * FROM statements for choices
 const viewAllEmployees = () => {
-    const query = 'SELECT * FROM employee_table';
+    const query = 'SELECT * FROM employee';
     connection.query(query, (err, res) => {
         if (err) throw err;
         console.table(res);
@@ -117,7 +115,7 @@ const viewAllEmployees = () => {
 }
 
 const viewAllRoles = () => {
-    const query = 'SELECT * FROM role_table';
+    const query = 'SELECT * FROM role';
     connection.query(query, (err, res) => {
         if (err) throw err;
         console.table(res);
@@ -126,7 +124,7 @@ const viewAllRoles = () => {
 }
 
 const viewAllDepartments = () => {
-    const query = 'SELECT * FROM department_table';
+    const query = 'SELECT * FROM department';
     connection.query(query, (err, res) => {
         if (err) throw err;
         console.table(res);
