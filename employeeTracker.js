@@ -56,7 +56,7 @@ const printMenuPrompts = () => {
             ],
         
 
-                
+
         })
         .then((answers) => {
             const { choices } = answers;
@@ -77,8 +77,6 @@ const printMenuPrompts = () => {
                 updateEmployeeRole();
             }
             if (choices === 'Update Employee Manager') {
-                // console.log('This option is currently unavailable. Please select another option')
-                // printMenuPrompt();
                 updateEmployeeManager();
             }
             if (choices === 'Add New Employee') {
@@ -99,7 +97,8 @@ const printMenuPrompts = () => {
             if (choices === 'Delete Department') {
                 deleteCurrentDepartment();
             }
-            if (choices === 'Exit') {
+            if (choices === 'Exit Menu') {
+                console.log('Logged out! Type npm start to login')
                 connection.end();
             }
 
@@ -135,7 +134,7 @@ const viewAllDepartments = () => {
     printMenuPrompts();
 }
 
-// BONUS: SQL GROUP BY statement to view employees by manager
+// BONUS: SQL ORDER BY statement to view employees by manager
 const viewEmployeesByManager = () => {
     const query = 'SELECT * FROM employee ORDER BY manager_id DESC';
     connection.query(query, (err, res) => {
@@ -199,6 +198,13 @@ const updateEmployeeRole = () => {
         });
     });
 };
+
+const updateEmployeeManager = () => {
+    if (err) throw (err);
+    console.log('This option is not available. Select another option.');
+
+    printMenuPrompts();
+}
 
 const addNewEmployee = () => {
     connection.query('SELECT * FROM role', (err, roles) => {
@@ -321,15 +327,13 @@ if (err) throw err;
 
 
 printMenuPrompts();
+
 });
 
 
-// function quit() {
-
-// console.log
 
 
-// }
+
 
 
 
