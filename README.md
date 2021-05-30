@@ -8,7 +8,7 @@ This application is a backend solution for managing a company's employees using 
 
 [GitHub Repository](https://github.com/rdevans87/MySQL-Employee-Tracker)
 
-[README](/) on GitHub Pages.
+[README]( https://rdevans87.github.io/MySQL-Employee-Tracker/) on GitHub Pages.
 
 Walk through video demonstrating applications funcionality: 
 
