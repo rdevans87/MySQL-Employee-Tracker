@@ -53,7 +53,7 @@ run command `node employeeTracker`, then `npm start` to answer the prompts.
 run command `npm start` 
 select an option from the menu prompt 
 follow the prompts for each selection.
-menu options highlighted in `red` 
+`Red` menu options are unfinished `Bonus`.
 Select `Exit Menu` to quit.
 
 

@@ -47,9 +47,9 @@ const printMenuPrompts = () => {
                 'Add New Role',
                 'Add New Department',
                 chalk.red('Update Employee Managers'),
-                chalk.red('Delete Current Employee'),
-                chalk.red('Delete Current Role'),
-                chalk.red('Delete Current Department'),
+                chalk.red('Delete Employee'),
+                chalk.red('Delete Role'),
+                chalk.red('Delete Department'),
                 'Exit Menu',
             ],
 
@@ -74,9 +74,7 @@ const printMenuPrompts = () => {
             if (choices === 'Update Employee Role') {
                 updateEmployeeRole();
             }
-            if (choices === 'Update Employee Managers') {
-                updateEmployeeManagers();
-            }
+
             if (choices === 'Add New Employee') {
                 addNewEmployee();
             }
@@ -86,14 +84,17 @@ const printMenuPrompts = () => {
             if (choices === 'Add New Department') {
                 addNewDepartment();
             }
-            if (choices === 'Delete Current Employee') {
-                deleteCurrentEmployee();
+            if (choices === 'Update Employee Managers') {
+                updateEmployeeManagers();
             }
-            if (choices === 'Delete Current Role') {
-                deleteCurrentRole();
+            if (choices === 'Delete Employee') {
+                deleteEmployee();
             }
-            if (choices === 'Delete Current Department') {
-                deleteCurrentDepartment();
+            if (choices === 'Delete Role') {
+                deleteRole();
+            }
+            if (choices === 'Delete Department') {
+                deleteDepartment();
             }
             if (choices === 'Exit Menu') {
                 console.log('Logged out! Type npm start to login')
@@ -326,21 +327,6 @@ const addNewDepartment = () => {
         });
 };
 
-// const updateEmployeeManagers = () => {
-//     inquirer
-//         .prompt([
-//             {
-//                 type: 'prompt',
-//                 name: 'prompt',
-//                 message: "This option isn't available. Select another option."
-//             }
-//         ])
-//     printMenuPrompts();
-// }
-
-
-
-
 
 connection.connect((err) => {
     if (err) throw err;
@@ -349,4 +335,48 @@ connection.connect((err) => {
     printMenuPrompts();
 
 });
+
+
+// DELETE EMPLOYEE BONUS
+
+// const deleteEmployee = () => {
+//     connection.query('SELECT * FROM employee', (err, employees) => {
+//         if (err) console.log(err);
+//         employees = employees.map((employee) => {
+//             return {
+//                 name: `${employee.first_name} ${employee.last_name}`,
+//                 value: employee.id,
+//             };
+//         });
+    //     inquirer
+    //         .prompt([
+    //             {
+    //                 type: 'list',
+    //                 name: 'deleteEmployee',
+    //                 message: 'Select employee to delete...',
+    //                 choices: employees,
+    //             },
+    //         ])
+    //         .then((data) => {
+    //             connection.query('DELETE FROM employee WHERE employee.id = ?',
+    //                 [
+    //                     {
+
+    //                         employee_id: data.deleteEmployee,
+
+    //                     }
+    //                 ],
+    //                 function (err) {
+    //                     if (err) throw err;
+    //                 }
+    //             );
+    //             console.log('Employee Deleted');
+    //             viewAllEmployees();
+    //         });
+
+    // });
+//     });
+// };
+
+
 
