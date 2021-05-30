@@ -45,7 +45,7 @@ const printMenuPrompts = () => {
                 'View All Departments',
                 'View Employees By Manager',
                 'Update Employee Role',
-                'Update Employee Manager',
+                chalk.red('Update Employee Manager'),
                 'Add New Employee',
                 'Add New Role',
                 'Add New Department',
@@ -55,6 +55,8 @@ const printMenuPrompts = () => {
                 'Exit Menu',
             ],
         
+
+                
         })
         .then((answers) => {
             const { choices } = answers;
@@ -75,6 +77,8 @@ const printMenuPrompts = () => {
                 updateEmployeeRole();
             }
             if (choices === 'Update Employee Manager') {
+                // console.log('This option is currently unavailable. Please select another option')
+                // printMenuPrompt();
                 updateEmployeeManager();
             }
             if (choices === 'Add New Employee') {
@@ -133,7 +137,7 @@ const viewAllDepartments = () => {
 
 // BONUS: SQL GROUP BY statement to view employees by manager
 const viewEmployeesByManager = () => {
-    const query = 'SELECT * FROM employee_table GROUP BY department_id ORDER BY manager_id';
+    const query = 'SELECT * FROM employee ORDER BY manager_id DESC';
     connection.query(query, (err, res) => {
         if (err) throw err;
         console.table(res);
@@ -171,12 +175,11 @@ const updateEmployeeRole = () => {
                     type: 'list',
                     name: 'selectNewRole',
                     message: 'Select new employee role...',
-                    choices: 'roles',
+                    choices: roles,
                 },
             ])
                 .then((data) => {
-                    connection.query(
-                        'UPDATE employee SET ? WHERE ?',
+                    connection.query('UPDATE employee SET ? WHERE ?',
                         [
                             {
                                 role_id: data.selectNewRole,
