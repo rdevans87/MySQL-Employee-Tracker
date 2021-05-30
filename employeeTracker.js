@@ -45,7 +45,7 @@ const printMenuPrompts = () => {
                 'View All Departments',
                 'View Employees By Manager',
                 'Update Employee Role',
-                chalk.red('Update Employee Manager'),
+                chalk.red('Update Employee Managers'),
                 'Add New Employee',
                 'Add New Role',
                 'Add New Department',
@@ -76,8 +76,8 @@ const printMenuPrompts = () => {
             if (choices === 'Update Employee Role') {
                 updateEmployeeRole();
             }
-            if (choices === 'Update Employee Manager') {
-                updateEmployeeManager();
+            if (choices === 'Update Employee Managers') {
+                updateEmployeeManagers();
             }
             if (choices === 'Add New Employee') {
                 addNewEmployee();
@@ -199,11 +199,12 @@ const updateEmployeeRole = () => {
     });
 };
 
-const updateEmployeeManager = () => {
+const updateEmployeeManagers = () => {
     if (err) throw (err);
     console.log('This option is not available. Select another option.');
 
     printMenuPrompts();
+
 }
 
 const addNewEmployee = () => {

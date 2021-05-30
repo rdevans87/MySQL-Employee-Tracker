@@ -17,7 +17,7 @@
     "url": "https://github.com/rdevans87/MySQL-Employee-Tracker/issues"
   },
   "homepage": "https://github.com/rdevans87/MySQL-Employee-Tracker#readme",
-  "dependencies": {
+   "dependencies": {
     "chalk": "^4.1.1",
     "console.table": "^0.10.0",
     "dotenv": "^10.0.0",
