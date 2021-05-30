@@ -43,10 +43,10 @@ const printMenuPrompts = () => {
                 'View All Departments',
                 'View Employees By Manager',
                 'Update Employee Role',
-                chalk.red('Update Employee Managers'),
                 'Add New Employee',
                 'Add New Role',
                 'Add New Department',
+                chalk.red('Update Employee Managers'),
                 chalk.red('Delete Current Employee'),
                 chalk.red('Delete Current Role'),
                 chalk.red('Delete Current Department'),
@@ -86,13 +86,13 @@ const printMenuPrompts = () => {
             if (choices === 'Add New Department') {
                 addNewDepartment();
             }
-            if (choices === 'Delete Employee') {
+            if (choices === 'Delete Current Employee') {
                 deleteCurrentEmployee();
             }
-            if (choices === 'Delete Role') {
+            if (choices === 'Delete Current Role') {
                 deleteCurrentRole();
             }
-            if (choices === 'Delete Department') {
+            if (choices === 'Delete Current Department') {
                 deleteCurrentDepartment();
             }
             if (choices === 'Exit Menu') {
@@ -269,32 +269,33 @@ const addNewRole = () => {
                 {
                     type: 'input',
                     name: 'newRole',
-                    message: 'Enter title of new role.'
+                    message: 'Enter title of new role...'
                 },
                 {
                     type: 'input',
-                    name: 'newsalary',
-                    message: 'Enter salary of new role.',
+                    name: 'salary',
+                    message: 'Enter salary of new role...',
                 },
                 {
                     type: 'list',
                     name: 'departmentId',
-                    message: 'Enter department of new role.',
+                    message: 'Enter department of new role...',
                     choices: departments,
                 },
             ])
             .then((data) => {
-                connection.query('INSERT INTO role SET ?',
+                connection.query(
+                    'INSERT INTO role SET ?',
                     {
                         title: data.newRole,
-                        salary: data.newSalary,
+                        salary: data.salary,
                         department_id: data.departmentId,
                     },
                     function (err) {
                         if (err) throw err;
                     }
                 );
-                console.log('employee role')
+                console.log('added new employee role!')
                 viewAllRoles();
             });
 
