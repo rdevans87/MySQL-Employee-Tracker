@@ -1,5 +1,5 @@
 // connect to db to perform quieries
-const mysql = require('mysql');
+const mysql = require('mysql2');
 // //calling database
 // const connection = require('./employeeTracker');
 // interact with user via the command line
@@ -8,36 +8,46 @@ const inquirer = require('inquirer');
 const chalk = require('chalk');
 // implement FIGfont spec in Javascript
 const figlet = require('figlet');
+const { ConsoleWriter } = require('istanbul-lib-report');
+const { connect } = require('http2');
 // dotenv for environmental variables
 require('dotenv').config();
 // print MySQL rows to the console.
 require('console.table');
 
-const validator = require('validator')
-
-const connection = mysql.createConnection(
-    process.env.DB_NAME,
-    process.env.DB_USER,
-    process.env.DB_PASSWORD,
-    {
+// const validator = require('validator')
+const connection = mysql.createConnection({
         host: 'localhost',
-        dialect: 'mysql',
-        port: 3306
-    }
-
-);
+        port: 3306,
+        user: 'root',
+        password: process.env.DB_PASSWORD,
+        database: 'employeetracker_db'       
+});
 
 connection.connect();
-    console.log(chalk.yellow.bold('==========================================================================='));
+
+init();
+
+function init() {
+    
+    console.log(chalk.yellow.bold('======================================================================================================='));
     console.log(``);
     console.log(chalk.red.bold(figlet.textSync('EMPLOYEE TRACKER')));
     console.log(``);
-    console.log(`                               ` + chalk.green.bold('Created By: Ryan Evans'));                                                     
+    console.log(`                               ` + chalk.green.bold('(C)ONTENT (M)ANAGEMENT (S)YSTEM'));                                                     
     console.log(``);
-    console.log(chalk.yellow.bold(`===========================================================================`));
-    menuPrompt();
+    console.log(chalk.yellow.bold(`======================================================================================================`));
 
-const menuPrompt = () => {
+
+    printMainMenu();
+
+
+}
+
+
+
+const printMenuPrompts = () => {
+    
     inquirer.prompt([
         {
             name: 'choices',
@@ -58,7 +68,7 @@ const menuPrompt = () => {
                 'Delete Current Department',
                 'Exit Menu'
             ]
-        }
+        },
     ])
         .then((answers) => {
             const { choices } = answers;
@@ -114,7 +124,7 @@ const viewAllEmployees = () => {
         if (err) throw err;
         console.table(res);
     })
-    menuPrompt();
+    printMenuPrompts();
 }
 
 const viewAllRoles = () => {
@@ -123,7 +133,7 @@ const viewAllRoles = () => {
         if (err) throw err;
         console.table(res);
     })
-    menuPrompt();
+    printMenuPrompts();
 }
 
 const viewAllDepartments = () => {
@@ -132,7 +142,7 @@ const viewAllDepartments = () => {
         if (err) throw err;
         console.table(res);
     })
-    menuPrompt();
+    printMenuPrompts();
 }
 
 // BONUS: SQL GROUP BY statement to view employees by manager
@@ -142,7 +152,8 @@ const viewEmployeesByManager = () => {
         if (err) throw err;
         console.table(res);
     })
-    menuPrompt();
+    
+    printMenuPrompts();
 }
 
 const updateEmployeeRole = () => {
@@ -315,8 +326,9 @@ const addNewDepartment = () => {
         });
 };
 
-
 module.exports = connection;
+
+
 
 
 
