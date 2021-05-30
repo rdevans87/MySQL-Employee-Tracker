@@ -12,11 +12,9 @@ This application is a backend solution for managing a company's employees using 
 
 Walk through video demonstrating applications funcionality: 
 
-[MySQL Employee Tracker](https://drive.google.com/file/d/1VDGGTiSp2DNNYfgw-0ArMB5ri3vWl1S2/view?usp=sharing) 
-
+[MySQL Employee Tracker](https://youtu.be/xtH_FA7Mm0s) 
 
 <img src="Assets/mysql-menu.png" width="600"/>
-
 
 ## User Story
 
