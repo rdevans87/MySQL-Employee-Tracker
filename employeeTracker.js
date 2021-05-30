@@ -11,7 +11,6 @@ require('dotenv').config();
 // print MySQL rows to the console.
 require('console.table');
 
-// const validator = require('validator')
 const connection = mysql.createConnection({
         host: 'localhost',
         port: 3306,
@@ -144,7 +143,7 @@ const viewEmployeesByManager = () => {
 }
 
 const updateEmployeeRole = () => {
-    connection.query('SELECT * FROM role', (err, employees) => {
+    connection.query('SELECT * FROM employee', (err, employees) => {
         if (err) console.log(err);
         employees = employees.map((employee) => {
             return {
@@ -160,7 +159,8 @@ const updateEmployeeRole = () => {
                     value: role.id,
                 }
             });
-            inquirer.prompt([
+            inquirer
+               .prompt([
                 {
                     type: 'list',
                     name: 'selectEmployee',
@@ -176,7 +176,7 @@ const updateEmployeeRole = () => {
             ])
                 .then((data) => {
                     connection.query(
-                        'UPDATE employee SET ? WHERE?',
+                        'UPDATE employee SET ? WHERE ?',
                         [
                             {
                                 role_id: data.selectNewRole,
@@ -283,7 +283,7 @@ const addNewRole = () => {
                         if (err) throw err;
                     }
                 );
-                console.log('New role added to database')
+                console.log('employee role')
                 viewAllRoles();
             });
 
