@@ -8,8 +8,6 @@ const inquirer = require('inquirer');
 const chalk = require('chalk');
 // implement FIGfont spec in Javascript
 const figlet = require('figlet');
-const { ConsoleWriter } = require('istanbul-lib-report');
-const { connect } = require('http2');
 // dotenv for environmental variables
 require('dotenv').config();
 // print MySQL rows to the console.
@@ -24,12 +22,10 @@ const connection = mysql.createConnection({
         database: 'employeetracker_db'       
 });
 
-connection.connect();
 
-init();
 
-function init() {
-    
+
+// connection.connect();
     console.log(chalk.yellow.bold('======================================================================================================='));
     console.log(``);
     console.log(chalk.red.bold(figlet.textSync('EMPLOYEE TRACKER')));
@@ -37,19 +33,12 @@ function init() {
     console.log(`                               ` + chalk.green.bold('(C)ONTENT (M)ANAGEMENT (S)YSTEM'));                                                     
     console.log(``);
     console.log(chalk.yellow.bold(`======================================================================================================`));
-
-
-    printMainMenu();
-
-
-}
-
+  
 
 
 const printMenuPrompts = () => {
-    
-    inquirer.prompt([
-        {
+    inquirer
+        .prompt({
             name: 'choices',
             type: 'list',
             message: 'PLEASE SELECT A MENU OPTION...',
@@ -66,10 +55,10 @@ const printMenuPrompts = () => {
                 'Delete Current Employee',
                 'Delete Current Role',
                 'Delete Current Department',
-                'Exit Menu'
-            ]
-        },
-    ])
+                'Exit Menu',
+            ],
+        
+        })
         .then((answers) => {
             const { choices } = answers;
 
@@ -326,9 +315,20 @@ const addNewDepartment = () => {
         });
 };
 
-module.exports = connection;
+connection.connect((err) => { 
+if (err) throw err;
 
 
+printMenuPrompt();
+});
+
+
+// function quit() {
+
+// console.log
+
+
+// }
 
 
 
