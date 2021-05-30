@@ -32,6 +32,8 @@ Open `terminal` window after fork.
 `npm init -y` to create a package.son file to store your dependenices.
 `npm i` to install your NPM package manager and required dependencies.
 `npm i inquirer` to interact with the user via the command-line.
+`npm i figlet` to implement implement FIGfont spec in Javascript. 
+`npm i chalk ` for terminal string styling.
 `npm i console.table` to print MySQL rows to the console.
 `npm i dotenv` to store environmental variables.
 `npm i mysql` to connect to your MySQL database and perform queries.
@@ -58,15 +60,15 @@ Select `Exit Menu` to quit.
 ## Acceptance Criteria
 
 * Functional application. <img src="Assets/icons8-checkmark.png"/>
-* GitHub repository with a unique name and a README describing the project.
+* GitHub repository with a unique name and a README describing the project. <img src="Assets/icons8-checkmark.png"/>
 * The command-line application should allow users to:
-  * Add departments, roles, employees
-  * View departments, roles, employees
-  * Update employee roles
+  * Add departments, roles, employees <img src="Assets/icons8-checkmark.png"/>
+  * View departments, roles, employees <img src="Assets/icons8-checkmark.png"/>
+  * Update employee roles <img src="Assets/icons8-checkmark.png"/>
 
 ## Bonus
-* View employees by manager 
-* Update employee managers
+* View employees by manager <img src="Assets/icons8-checkmark.png"/>
+* Update employee managers 
 * Delete departments, roles, and employees
 * View the total utilized budget of a department -- ie the combined salaries of all employees in that department
 
