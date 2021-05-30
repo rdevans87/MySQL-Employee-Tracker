@@ -25,7 +25,6 @@ Example database schema containing three tables:
 Walk through video demonstrating applications funcionality: [MySQL Employee Tracker](/) 
 
 
-
 ## Installation 
 
 Open `terminal` window after fork.
@@ -67,10 +66,11 @@ Select `Exit Menu` to quit.
   * Update employee roles <img src="Assets/icons8-checkmark.png"/>
 
 ## Bonus
-* View employees by manager <img src="Assets/icons8-checkmark.png"/>
-* Update employee managers 
-* Delete departments, roles, and employees
-* View the total utilized budget of a department -- ie the combined salaries of all employees in that department
+
+* View employees by manager <img src="Assets/icons8-checkmark.png" />
+* Update employee managers <img src="Assets/icons8-cross_mark.png" width="20px"/>
+* Delete departments, roles, and employees  <img src="Assets/icons8-cross_mark.png" width="20px"/>
+* View the total utilized budget of a department -- ie the combined salaries of all employees in that department  <img src="Assets/icons8-cross_mark.png" width="20px"/>
 
 ## Submitted for review:
 

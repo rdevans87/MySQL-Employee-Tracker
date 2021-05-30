@@ -12,25 +12,23 @@ require('dotenv').config();
 require('console.table');
 
 const connection = mysql.createConnection({
-        host: 'localhost',
-        port: 3306,
-        user: 'root',
-        password: process.env.DB_PASSWORD,
-        database: 'employeeTracker_db'       
+    host: 'localhost',
+    port: 3306,
+    user: 'root',
+    password: process.env.DB_PASSWORD,
+    database: 'employeeTracker_db'
 });
 
 
-
-
 // connection.connect();
-    console.log(chalk.yellow.bold('======================================================================================================='));
-    console.log(``);
-    console.log(chalk.red.bold(figlet.textSync('EMPLOYEE TRACKER')));
-    console.log(``);
-    console.log(`                               ` + chalk.green.bold('(C)ONTENT (M)ANAGEMENT (S)YSTEM'));                                                     
-    console.log(``);
-    console.log(chalk.yellow.bold(`======================================================================================================`));
-  
+console.log(chalk.yellow.bold('======================================================================================================='));
+console.log(``);
+console.log(chalk.red.bold(figlet.textSync('EMPLOYEE TRACKER')));
+console.log(``);
+console.log(`                               ` + chalk.green.bold('(C)ONTENT (M)ANAGEMENT (S)YSTEM'));
+console.log(``);
+console.log(chalk.yellow.bold(`======================================================================================================`));
+
 
 
 const printMenuPrompts = () => {
@@ -49,12 +47,12 @@ const printMenuPrompts = () => {
                 'Add New Employee',
                 'Add New Role',
                 'Add New Department',
-                'Delete Current Employee',
-                'Delete Current Role',
-                'Delete Current Department',
+                chalk.red('Delete Current Employee'),
+                chalk.red('Delete Current Role'),
+                chalk.red('Delete Current Department'),
                 'Exit Menu',
             ],
-        
+
 
 
         })
@@ -141,7 +139,7 @@ const viewEmployeesByManager = () => {
         if (err) throw err;
         console.table(res);
     })
-    
+
     printMenuPrompts();
 }
 
@@ -163,20 +161,20 @@ const updateEmployeeRole = () => {
                 }
             });
             inquirer
-               .prompt([
-                {
-                    type: 'list',
-                    name: 'selectEmployee',
-                    message: 'Select employee to update...',
-                    choices: employees,
-                },
-                {
-                    type: 'list',
-                    name: 'selectNewRole',
-                    message: 'Select new employee role...',
-                    choices: roles,
-                },
-            ])
+                .prompt([
+                    {
+                        type: 'list',
+                        name: 'selectEmployee',
+                        message: 'Select employee to update...',
+                        choices: employees,
+                    },
+                    {
+                        type: 'list',
+                        name: 'selectNewRole',
+                        message: 'Select new employee role...',
+                        choices: roles,
+                    },
+                ])
                 .then((data) => {
                     connection.query('UPDATE employee SET ? WHERE ?',
                         [
@@ -199,13 +197,6 @@ const updateEmployeeRole = () => {
     });
 };
 
-const updateEmployeeManagers = () => {
-    if (err) throw (err);
-    console.log('This option is not available. Select another option.');
-
-    printMenuPrompts();
-
-}
 
 const addNewEmployee = () => {
     connection.query('SELECT * FROM role', (err, roles) => {
@@ -216,35 +207,44 @@ const addNewEmployee = () => {
                 value: role.id,
             };
         });
-        inquirer.prompt([
-            {
-                type: 'input',
-                name: 'firstName',
-                message: 'Enter first name of new employee...'
-            },
-            {
-                type: 'input',
-                name: 'lastName',
-                message: 'Enter last name of new employee...'
-            },
-            {
-                type: 'input',
-                name: 'role',
-                message: 'Enter new employee role...',
-                choices: roles,
-            },
-        ])
+        inquirer
+            .prompt([
+                {
+                    type: 'input',
+                    name: 'firstName',
+                    message: 'Enter first name of new employee...'
+                },
+                {
+                    type: 'input',
+                    name: 'lastName',
+                    message: 'Enter last name of new employee...'
+                },
+                {
+                    type: 'list',
+                    name: 'role',
+                    message: 'Enter new employee role...',
+                    choices: roles,
+                },
+                {
+                    type: 'list',
+                    name: 'managerId',
+                    message: 'select a manager id...',
+                    choices: [1, 3, 5, 6, 7]
+                }
+            ])
             .then((data) => {
                 console.log(data.role);
-                connection.query('INSERT INTO employee SET ?',
+                connection.query(
+                    'INSERT INTO employee SET ?',
                     {
                         first_name: data.firstName,
                         last_name: data.lastName,
                         role_id: data.role,
+                        manager_id: data.managerId
                     },
                     (err) => {
                         if (err) throw err;
-                        console.log('Updated Employee List:');
+                        console.log('Updated Employee Roster;');
                         viewAllEmployees();
 
                     }
@@ -253,7 +253,7 @@ const addNewEmployee = () => {
 
     });
 
-}
+};
 
 const addNewRole = () => {
     connection.query('SELECT * FROM department', (err, departments) => {
@@ -264,24 +264,25 @@ const addNewRole = () => {
                 value: department.id,
             };
         });
-        inquirer.prompt([
-            {
-                type: 'input',
-                name: 'newRole',
-                message: 'Enter title of new role.'
-            },
-            {
-                type: 'input',
-                name: 'newsalary',
-                message: 'Enter salary of new role.',
-            },
-            {
-                type: 'list',
-                name: 'departmentId',
-                message: 'Enter department of new role.',
-                choices: departments,
-            },
-        ])
+        inquirer
+            .prompt([
+                {
+                    type: 'input',
+                    name: 'newRole',
+                    message: 'Enter title of new role.'
+                },
+                {
+                    type: 'input',
+                    name: 'newsalary',
+                    message: 'Enter salary of new role.',
+                },
+                {
+                    type: 'list',
+                    name: 'departmentId',
+                    message: 'Enter department of new role.',
+                    choices: departments,
+                },
+            ])
             .then((data) => {
                 connection.query('INSERT INTO role SET ?',
                     {
@@ -302,13 +303,14 @@ const addNewRole = () => {
 };
 
 const addNewDepartment = () => {
-    inquirer.prompt([
-        {
-            type: 'input',
-            name: 'newDepartment',
-            message: 'Enter new department name...'
-        },
-    ])
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                name: 'newDepartment',
+                message: 'Enter new department name...'
+            },
+        ])
         .then((data) => {
             connection.query('INSERT INTO department SET ?',
                 {
@@ -323,25 +325,27 @@ const addNewDepartment = () => {
         });
 };
 
-connection.connect((err) => { 
-if (err) throw err;
+// const updateEmployeeManagers = () => {
+//     inquirer
+//         .prompt([
+//             {
+//                 type: 'prompt',
+//                 name: 'prompt',
+//                 message: "This option isn't available. Select another option."
+//             }
+//         ])
+//     printMenuPrompts();
+// }
 
 
-printMenuPrompts();
+
+
+
+connection.connect((err) => {
+    if (err) throw err;
+
+
+    printMenuPrompts();
 
 });
 
-
-
-
-
-
-
-
-// ## Bonus
-
-// * The command-line application should allow users to:
-//   * Update employee managers
-//   * View employees by manager
-//   * Delete departments, roles, and employees
-//   * View the total utilized budget of a department -- ie the combined salaries of all employees in that department
