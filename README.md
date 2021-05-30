@@ -9,6 +9,15 @@ This application is a backend solution for managing a company's employees using 
 [GitHub Repository](https://github.com/rdevans87/MySQL-Employee-Tracker)
 
 [README](/) on GitHub Pages.
+
+Walk through video demonstrating applications funcionality: 
+
+[MySQL Employee Tracker](https://drive.google.com/file/d/1VDGGTiSp2DNNYfgw-0ArMB5ri3vWl1S2/view?usp=sharing) 
+
+
+<img src="Assets/mysql-menu.png" width="600"/>
+
+
 ## User Story
 
 ```
@@ -21,39 +30,51 @@ Example database schema containing three tables:
 
 <img src="Assets/schema.png" width="500px"/>
 
-
-Walk through video demonstrating applications funcionality: [MySQL Employee Tracker](/) 
-
-
 ## Installation 
 
 Open `terminal` window after fork.
-`npm init -y` to create a package.son file to store your dependenices.
+`npm init -y` to create a package.son file to store your dependenices. 
+
 `npm i` to install your NPM package manager and required dependencies.
+
 `npm i inquirer` to interact with the user via the command-line.
-`npm i figlet` to implement implement FIGfont spec in Javascript. 
-`npm i chalk ` for terminal string styling.
+
+`npm i figlet` to implement FIGfont spec in Javascript. 
+
+`npm i chalk ` for terminal string styling of Logo.
+
 `npm i console.table` to print MySQL rows to the console.
+
 `npm i dotenv` to store environmental variables.
-`npm i mysql` to connect to your MySQL database and perform queries.
+
+`npm i mysql2` to connect to your MySQL database and perform queries.
+
 run command `mysql -u -root -p` to initilize MySQL, then type `username` and `password` to login:
 
 ```
 Test User
+
 username: root
 password: test123
+database: employeeTracker_db
 
  ```
-`Welcome to the MySQL monitor`, next type `mysql> status` to request status information from the server or `help` for more options.
-confirm connection with database and server, then `quit` mysql. 
-run command `node employeeTracker`, then `npm start` to answer the prompts.
+`Welcome to the MySQL monitor` 
+
+type `mysql> status` to confirm connection with database.
+
+run command `node employeeTracker`, or `npm start` to answer the prompts.
 
 ## Usage
 
 run command `npm start` 
+
 select an option from the menu prompt 
+
 follow the prompts for each selection.
+
 `Red` menu options are unfinished `Bonus`.
+
 Select `Exit Menu` to quit.
 
 
@@ -80,8 +101,9 @@ Select `Exit Menu` to quit.
 
 ## Contact 
 
-(Ryan Evans)[https://github.com/rdevans87] Repository
+[Ryan Evans](https://github.com/rdevans87) Repository
 
  Email: <a href="mailto:rdevans87@gmail.com">rdevans87@gmail.com</a>
+
 
 [MIT LICENSE](LICENSE)
