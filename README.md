@@ -10,7 +10,7 @@ This application is a backend solution for managing a company's employees using 
 
 [README]( https://rdevans87.github.io/MySQL-Employee-Tracker/) on GitHub Pages.
 
-Walk through video demonstrating applications funcionality: 
+Walk through video demonstrating application functionality: 
 
 [MySQL Employee Tracker](https://youtu.be/xtH_FA7Mm0s) 
 
